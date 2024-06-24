@@ -1,0 +1,48 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title class="title-header">Merge JSON Files</mat-card-title>
+    <mat-card-content>
+      <div class="file-input">
+        <button mat-raised-button color="primary">
+          <mat-icon>attach_file</mat-icon>
+          <input type="file" id="file1" (change)="onFileSelected($event, 1)" />
+          Select File 1
+        </button>
+        <span *ngIf="file1Content">
+          <mat-icon (click)="removeFile(1)" class="remove"
+            >remove_circle</mat-icon
+          >
+          {{ file1Name }}
+        </span>
+      </div>
+      <div class="file-input">
+        <button mat-raised-button color="primary">
+          <mat-icon>attach_file</mat-icon>
+          <input type="file" id="file2" (change)="onFileSelected($event, 2)" />
+          Select File 2
+        </button>
+        <span *ngIf="file2Content">
+          <mat-icon (click)="removeFile(2)" class="remove"
+            >remove_circle</mat-icon
+          >
+          {{ file2Name }}
+        </span>
+      </div>
+      <div class="buttons">
+        <button mat-raised-button color="primary" (click)="mergeFiles()">
+          <mat-icon>merge_type</mat-icon>
+          Merge Files
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="downloadFile()"
+          [disabled]="!mergedJson"
+        >
+          <mat-icon>download</mat-icon>
+          Download Merged File
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
