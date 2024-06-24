@@ -6,7 +6,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensures no overflow beyond container */
+  overflow: hidden;
 }
 
 .title {
@@ -18,14 +18,14 @@
 }
 
 .components {
-  display: flex; /* Use flexbox for horizontal alignment */
-  justify-content: center; /* Center align flex items */
-  flex-wrap: wrap; /* Allow items to wrap if necessary */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .component {
-  flex: 1; /* Each component takes equal space */
-  margin: 10px; /* Margin between components */
+  flex: 1;
+  margin: 10px;
   padding: 15px;
   background-color: #fff;
   border: 1px solid #e0e0e0;

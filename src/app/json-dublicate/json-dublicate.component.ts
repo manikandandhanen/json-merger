@@ -46,23 +46,15 @@ export class JsonDublicateComponent {
   }
 
   cleanJson() {
-    // Deep clone the original content
     const json = JSON.parse(JSON.stringify(this.file1Content));
-
-    // Call function to remove duplicates and repeats
     this.removeDuplicates(json);
-
-    // Set cleaned JSON
     this.cleanedJson = json;
   }
 
   removeDuplicates(json: any) {
     if (Array.isArray(json)) {
-      // Case 1: JSON is an array
       json.forEach((item: any) => {
-        // Assuming 'item' represents a specific object structure in your JSON array
         if (item.mani && Array.isArray(item.mani.dep)) {
-          // Remove duplicates based on 'name' property within 'dep' array
           const uniqueDep = [
             ...new Map(
               item.mani.dep.map((dep: any) => [dep.name, dep])
@@ -72,13 +64,8 @@ export class JsonDublicateComponent {
         }
       });
     } else if (typeof json === 'object') {
-      // Case 2: JSON is an object
-      // Adjust logic here based on your actual JSON structure
-      // For example, you may directly process the object if needed
       console.log('Processing single object:', json);
-      // Handle the structure of the single object as needed
     } else {
-      // Case 3: JSON is neither an array nor an object (handle other types if necessary)
       console.error('Input JSON is neither an array nor an object.');
     }
   }
